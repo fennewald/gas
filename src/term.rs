@@ -1,5 +1,4 @@
 use termion;
-use std::io::{self, Write};
 use crate::{Point};
 
 #[derive(Copy, Clone)]
@@ -337,9 +336,7 @@ impl Screen {
         let x = p.x as usize;
         let y = p.y as usize;
 
-        debug_assert!(x >= 0);
         debug_assert!(x < self.width);
-        debug_assert!(y >= 0);
         debug_assert!(y < self.height);
 
         let intra_cell_x = x & 1;

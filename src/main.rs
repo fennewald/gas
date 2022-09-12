@@ -10,7 +10,7 @@ mod term;
 
 use point::Point;
 
-const FPS: f64 = 60f64;
+const FPS: f64 = 30f64;
 
 fn main() {
     let mut stdout = stdout().into_raw_mode().unwrap();
@@ -21,7 +21,7 @@ fn main() {
     let mut u = universe::Universe::new();
     u.update_dims();
 
-    for _ in 0..1000 {
+    for _ in 0..5000 {
         u.add_rand();
     }
 

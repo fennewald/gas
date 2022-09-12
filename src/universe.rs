@@ -1,16 +1,15 @@
 use crate::{Point, term};
 use termion;
 use std::io::Write;
-use soa_derive::StructOfArray;
 use rand::prelude::*;
 
-const BASE_ENERGY: f32 = 10f32;
+const BASE_ENERGY: f32 = 100f32;
 const RADIUS: f32 = 1f32;
 const DAMP: f32 = 1.0;
 const GRAVITY: Point = Point { x: 0f32, y: 1.0 };
 
 
-#[derive(Copy, Clone, Debug, StructOfArray)]
+#[derive(Copy, Clone, Debug)]
 struct Particle {
     /// Location
     l: Point,
