@@ -100,7 +100,13 @@ impl Universe {
     fn render<W: Write>(&self, stdout: &mut termion::raw::RawTerminal<W>) {
         let mut screen = term::Screen::new(self.term_width(), self.term_height());
         self.particles.iter().for_each(|p| screen.add(&p.l));
-        write!(stdout, "{}{}{}", termion::cursor::Goto(1, 1), termion::clear::All, screen.to_string()).unwrap();
+        write!(
+            stdout,
+            "{}{}{}",
+            termion::cursor::Goto(1, 1),
+            termion::clear::All,
+            screen.to_string(),
+        ).unwrap();
         stdout.flush().unwrap();
     }
 
@@ -111,7 +117,7 @@ impl Universe {
     }
 
     /// Simulate physics 1 tick
-    fn tick(&mut self) {
+    pub fn tick(&mut self) {
         let dt = 0.01;
 
         for p in self.particles.iter_mut() {
